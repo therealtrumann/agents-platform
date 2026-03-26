@@ -1,0 +1,6 @@
+frontend
+.vercel
+.vercelignore
+.git
+*.md
+node_modules/
