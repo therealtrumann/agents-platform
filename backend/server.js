@@ -8,7 +8,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import Anthropic from '@anthropic-ai/sdk';
 import { v4 as uuid } from 'uuid';
-import db, { agents, products, knowledge, leads } from './db.js';
+import { agents, products, knowledge, leads, db } from './db.js';
 
 dotenv.config();
 
@@ -471,8 +471,8 @@ app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
     timestamp: new Date().toISOString(),
-    totalAgents: db.prepare('SELECT COUNT(*) as count FROM agents').get().count,
-    totalLeads: db.prepare('SELECT COUNT(*) as count FROM leads').get().count
+    totalAgents: agents.getAll().length,
+    totalLeads: db.leads.length
   });
 });
 

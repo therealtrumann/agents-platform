@@ -330,4 +330,4 @@ export const leads = {
 // Inicializar ao importar
 initDb();
 
-export default { db, loadDb, saveDb };
+export { db, loadDb, saveDb };
