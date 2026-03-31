@@ -20,7 +20,12 @@ const client = new Anthropic();
 // =====================
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:5174'],
+  origin: [
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'https://agents-platform-*.vercel.app',
+    process.env.CORS_ORIGIN || '*'
+  ],
   credentials: true
 }));
 app.use(express.json());
