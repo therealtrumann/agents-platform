@@ -472,6 +472,18 @@ app.post('/webhook/:agentId/whatsapp', async (req, res) => {
 // HEALTH CHECK
 // =====================
 
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Agentes WhatsApp API',
+    status: 'online',
+    version: '1.0.0',
+    endpoints: [
+      'GET /api/agents',
+      'GET /health'
+    ]
+  });
+});
+
 app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
